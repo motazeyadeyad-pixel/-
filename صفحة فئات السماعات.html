@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>منتجات السماعات</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Tahoma;
+    background:#0f0f0f;
+    direction:rtl;
+    color:white;
+    padding-top:180px;
+}
+
+/* الهيدر */
+header{
+    width:100%;
+    background:#151515;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:999;
+}
+
+/* اللوجو */
+.top-logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.top-logo img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:8px;
+}
+
+.top-logo h1{
+    color:#00ffd0;
+    font-size:32px;
+}
+
+/* الأزرار */
+.top-links{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:15px;
+    border-top:2px solid #333;
+    padding-top:15px;
+}
+
+.top-links a img{
+    width:120px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.top-links a img:hover{
+    transform:scale(1.08);
+}
+
+/* القائمة */
+.menu{
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+.menu-btn{
+    background:#00ffd0;
+    color:black;
+    border:none;
+    font-size:26px;
+    padding:8px 16px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.menu-content{
+    display:none;
+    position:absolute;
+    right:0;
+    top:55px;
+    background:#1d1d1d;
+    width:240px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+.menu-content a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+    padding:15px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.menu-content a:hover{
+    background:#00ffd0;
+    color:black;
+}
+
+.menu-content a img{
+    width:45px;
+    height:30px;
+    object-fit:cover;
+}
+
+/* عنوان الصفحة */
+.category-title{
+    text-align:center;
+    margin-top:90px;
+    margin-bottom:40px;
+    font-size:45px;
+    color:#00ffd0;
+}
+
+/* شبكة المنتجات */
+.products-grid{
+    width:85%;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:35px;
+}
+
+/* رابط المنتج */
+.product-link{
+    text-decoration:none;
+    color:white;
+}
+
+/* كرت المنتج */
+.product-card{
+    background:#1d1d1d;
+    border-radius:22px;
+    overflow:hidden;
+    text-align:center;
+    padding-bottom:18px;
+    transition:0.4s;
+    box-shadow:0 0 18px rgba(0,0,0,0.5);
+    height:100%;
+}
+
+.product-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 25px rgba(0,255,208,0.3);
+}
+
+/* الصور */
+.product-card img{
+    width:100%;
+    height:240px;
+    object-fit:contain;
+    background:#111;
+    padding:10px;
+}
+
+/* اسم المنتج */
+.product-name{
+    margin-top:15px;
+    font-size:24px;
+    padding:0 10px;
+}
+
+/* السعر */
+.product-price{
+    color:#00ffd0;
+    font-size:20px;
+    margin-top:8px;
+}
+
+/* التقييم */
+.product-rate{
+    color:#ffd700;
+    font-size:18px;
+    margin-top:8px;
+}
+
+/* للجوال */
+@media(max-width:900px){
+
+.products-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.products-grid{
+    grid-template-columns:1fr;
+}
+
+.category-title{
+    font-size:35px;
+}
+
+.top-links{
+    flex-wrap:wrap;
+}
+
+.top-links a img{
+    width:90px;
+}
+
+}
+.back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    color:rgb(255, 255, 255);
+    padding:10px 15px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    transform:scale(1.05);
+    background:#00bfa6;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<a href="web.html" class="back-btn">
+⬅ 
+</a>
+<div class="menu">
+
+<button class="menu-btn" onclick="openMenu()">
+☰
+</button>
+
+<div class="menu-content" id="menu">
+
+<a href="web11.html">
+
+<img src="من نحن.png">
+
+<span>من نحن</span>
+
+</a>
+
+<a href="web12.html">
+
+<img src="هداية.png">
+
+<span>الهدايا</span>
+
+</a>
+
+<a href="web13.html">
+
+<img src="عروض خاصة.png">
+
+<span>العروض الخاصة</span>
+
+</a>
+
+<a href="web14.html">
+
+<img src="تواصل معنا.png">
+
+<span>تواصل معنا</span>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="top-logo">
+
+<img src="logo.png">
+
+<h1>🎵 متجر موسيقاتي 🎵</h1>
+
+</div>
+
+<div class="top-links">
+
+<a href="web2.html">
+<img src="الرئيسية.png">
+</a>
+
+<a href="web.html">
+<img src="momo.png">
+</a>
+
+<a href="web9.html">
+<img src="الخدمات.png">
+</a>
+
+<a href="web10.html">
+<img src="mmk.png">
+</a>
+
+</div>
+
+</header>
+
+<h1 class="category-title">
+ منتجات السماعات 
+</h1>
+
+<div class="products-grid">
+
+<!-- المنتج 1 -->
+<a href="./المنتجات/سماعات/سماعات1.html" class="product-link">
+
+<div class="product-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/سماعات/sbekar1.jpg">
+
+<div class="product-name">
+اسم المنتج: سماعة خطية احترافية
+</div>
+
+<div class="product-price">
+السعر: 120 دينار
+</div>
+
+<div class="product-rate">
+التقييم: 8.7 ⭐
+</div>
+
+</div>
+
+</a>
+
+<!-- المنتج 2 -->
+<a href="./المنتجات/سماعات/سماعات2.html" class="product-link">
+
+<div class="product-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/سماعات/sbekar4.jpg">
+
+<div class="product-name">
+اسم المنتج: سماعة بلوتوث حديثة
+</div>
+
+<div class="product-price">
+السعر: 95 دينار
+</div>
+
+<div class="product-rate">
+التقييم: 9.1 ⭐
+</div>
+
+</div>
+
+</a>
+
+<!-- المنتج 3 -->
+<a href="./المنتجات/سماعات/سماعات3.html" class="product-link">
+
+<div class="product-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/سماعات/sbekar5.jpg">
+
+<div class="product-name">
+اسم المنتج: سماعة بلوتوث طويلة
+</div>
+
+<div class="product-price">
+السعر: 140 دينار
+</div>
+
+<div class="product-rate">
+التقييم: 9.3 ⭐
+</div>
+
+</div>
+
+</a>
+
+<!-- المنتج 4 -->
+<a href="./المنتجات/سماعات/سماعات4.html" class="product-link">
+
+<div class="product-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/سماعات/sbekar3.jpg">
+
+<div class="product-name">
+اسم المنتج: سماعة حفلات RGB
+</div>
+
+<div class="product-price">
+السعر: 160 دينار
+</div>
+
+<div class="product-rate">
+التقييم: 8.9 ⭐
+</div>
+
+</div>
+
+</a>
+
+<!-- المنتج 5 -->
+<a href="./المنتجات/سماعات/سماعات5.html" class="product-link">
+
+<div class="product-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/سماعات/sbekar.1.jpg">
+
+<div class="product-name">
+اسم المنتج: سماعة استوديو احترافية
+</div>
+
+<div class="product-price">
+السعر: 240 دينار
+</div>
+
+<div class="product-rate">
+التقييم: 9.8 ⭐
+</div>
+
+</div>
+
+</a>
+
+<!-- المنتج 6 -->
+<a href="./المنتجات/سماعات/سماعات6.html" class="product-link">
+
+<div class="product-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/سماعات/sbekar2.jpg">
+
+<div class="product-name">
+اسم المنتج: سماعة صوت نقي لاسلكية
+</div>
+
+<div class="product-price">
+السعر: 180 دينار
+</div>
+
+<div class="product-rate">
+التقييم: 9.0 ⭐
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+<script>
+
+function openMenu(){
+
+let menu = document.getElementById("menu");
+
+if(menu.style.display == "block"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "block";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

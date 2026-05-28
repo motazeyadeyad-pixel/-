@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>سلة الطلبات</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#111;
+    font-family:Tahoma;
+    direction:rtl;
+    color:white;
+    text-align:center;
+    padding-top:230px;
+}
+
+/* الهيدر */
+
+header{
+    width:100%;
+    background:#151515;
+    padding:10px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:999;
+}
+
+/* اللوجو */
+
+.top-logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.top-logo img{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+
+.top-logo h1{
+    color:#00ffd0;
+    font-size:30px;
+}
+
+/* الأزرار */
+
+.top-links{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    margin-top:25px;
+    border-top:2px solid #333;
+    padding-top:20px;
+}
+
+.top-links a img{
+    width:150px;
+    height:auto;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.top-links a img:hover{
+    transform:scale(1.08);
+}
+
+/* القائمة */
+
+.menu{
+    position:absolute;
+    top:25px;
+    right:25px;
+}
+
+.menu-btn{
+    background:#00ffd0;
+    color:black;
+    border:none;
+    font-size:28px;
+    padding:8px 16px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.menu-content{
+    display:none;
+    position:absolute;
+    right:0;
+    top:55px;
+    background:#1d1d1d;
+    width:260px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+.menu-content a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+    padding:15px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.menu-content a:hover{
+    background:#00ffd0;
+    color:black;
+}
+
+.menu-content a img{
+    width:90px;
+    height:55px;
+    object-fit:contain;
+    background:#111;
+    padding:5px;
+    border-radius:10px;
+}
+
+/* زر الرجوع */
+
+.back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    font-size:40px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    z-index:9999;
+}
+
+.back-btn:hover{
+    transform:scale(1.2);
+    color:#00ffd0;
+}
+
+/* السلة */
+
+.cart{
+    width:80%;
+    margin:auto;
+    margin-top:40px;
+    background:#1d1d1d;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+.cart img{
+    width:250px;
+    border-radius:20px;
+    margin-top:20px;
+    object-fit:contain;
+    background:#111;
+    padding:10px;
+}
+
+h2{
+    margin-top:25px;
+    font-size:35px;
+    color:#00ffd0;
+}
+
+p{
+    margin-top:20px;
+    font-size:24px;
+}
+
+.price{
+    color:#00ffd0;
+    font-size:30px;
+}
+
+.done{
+    margin-top:30px;
+    background:#00ffd0;
+    color:black;
+    padding:15px;
+    border-radius:15px;
+    font-size:24px;
+}
+
+/* زر */
+
+.btn{
+    margin-top:25px;
+    padding:15px 35px;
+    border:none;
+    border-radius:12px;
+    background:#00ffd0;
+    color:black;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    background:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="web.html" class="back-btn">⬅</a>
+
+<header>
+
+<div class="menu">
+
+<button class="menu-btn" onclick="openMenu()">
+☰
+</button>
+
+<div class="menu-content" id="menu">
+
+<a href="web11.html">
+
+<img src="من نحن.png">
+
+<span>من نحن</span>
+
+</a>
+
+<a href="web12.html">
+
+<img src="هداية.png">
+
+<span>الهدايا</span>
+
+</a>
+
+<a href="web13.html">
+
+<img src="عروض خاصة.png">
+
+<span>العروض الخاصة</span>
+
+</a>
+
+<a href="web14.html">
+
+<img src="تواصل معنا.png">
+
+<span>تواصل معنا</span>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="top-logo">
+
+<img src="logo.png">
+
+<h1>🎵 متجر موسيقاتي 🎵</h1>
+
+</div>
+
+<div class="top-links">
+
+<a href="web2.html">
+
+<img src="الرئيسية.png">
+
+</a>
+
+<a href="web.html">
+
+<img src="momo.png">
+
+</a>
+
+<a href="web9.html">
+
+<img src="الخدمات.png">
+
+</a>
+
+<a href="web10.html">
+
+<img src="mmk.png">
+
+</a>
+
+</div>
+
+</header>
+
+<div class="cart">
+
+<img src="حط_صورة_المنتج_هنا">
+
+<h2>
+تم إضافة المنتج للسلة ✅
+</h2>
+
+<p>
+تم شراء المنتج بنجاح وإضافته إلى سلة الطلبات.
+</p>
+
+<p class="price">
+السعر: 120 دينار
+</p>
+
+<div class="done">
+✔ شكراً لشرائك من متجر موسيقاتي
+</div>
+
+<button class="btn">
+متابعة التسوق
+</button>
+
+</div>
+
+<script>
+
+function openMenu(){
+
+let menu = document.getElementById("menu");
+
+if(menu.style.display == "block"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "block";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

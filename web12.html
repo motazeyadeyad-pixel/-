@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الهدايا</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma;
+}
+
+body{
+    background:linear-gradient(135deg,#0f0f0f,#1d1d1d);
+    color:white;
+    direction:rtl;
+}
+
+/* الهيدر */
+
+header{
+    background:#151515;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
+header h1{
+    color:#00ffd0;
+    font-size:45px;
+}
+
+/* زر الرجوع */
+
+.back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    font-size:35px;
+    text-decoration:none;
+    color:white;
+    z-index:999;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    color:#00ffd0;
+    transform:scale(1.2);
+}
+
+/* الكونتينر */
+
+.container{
+    width:90%;
+    margin:auto;
+    margin-top:50px;
+}
+
+/* النص */
+
+.top-card{
+    background:#1d1d1d;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    margin-bottom:50px;
+}
+
+.top-card h2{
+    color:#00ffd0;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.top-card p{
+    font-size:20px;
+    line-height:2;
+    color:#ddd;
+    text-align:center;
+}
+
+/* المنتجات */
+
+.gifts-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+/* الكرت */
+
+.gift-card{
+    background:#1d1d1d;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    text-decoration:none;
+    color:white;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+.gift-card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+/* الصورة */
+
+.gift-card img{
+    width:100%;
+    height:260px;
+    object-fit:contain;
+    background:#111;
+    padding:10px;
+}
+
+/* النصوص */
+
+.gift-info{
+    padding:20px;
+    text-align:center;
+}
+
+.gift-info h3{
+    color:#00ffd0;
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+.gift-info p{
+    font-size:18px;
+    line-height:2;
+    color:#ddd;
+}
+
+/* الزر */
+
+.gift-btn{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:12px;
+    background:#00ffd0;
+    color:black;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.gift-btn:hover{
+    transform:scale(1.08);
+    background:white;
+}
+
+/* للجوال */
+
+@media(max-width:800px){
+
+.gifts-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a class="back-btn" href="web2.html">⬅</a>
+
+<header>
+
+<h1>🎁 الهدايا 🎁</h1>
+
+</header>
+
+<div class="container">
+
+<!-- النص -->
+
+<div class="top-card">
+
+<h2>هدايا متجر موسيقاتي</h2>
+
+<p>
+
+نقدم هدايا مميزة مع بعض المنتجات مثل الإكسسوارات الموسيقية
+والتغليف المجاني والعروض الخاصة لمحبي الموسيقى.
+
+</p>
+
+</div>
+
+<!-- المنتجات -->
+
+<div class="gifts-grid">
+
+<!-- المنتج 1 -->
+
+<a href="web8.html" class="gift-card">
+
+<img src="./IEMIG/جميع صور تالمنتجات/قيثارات/ketar0.jpg">
+
+<div class="gift-info">
+
+<h3>🎸 هدية القيثار الكاملة</h3>
+
+<p>
+يشمل غيثار احترافي مع:
+<br>
+🎁 ريشة مجانية
+<br>
+🎁 شنطة حماية
+<br>
+🎁 تغليف هدية مجاني
+</p>
+
+<button class="gift-btn">
+شراء المنتج
+</button>
+
+</div>
+
+</a>
+
+<!-- المنتج 2 -->
+
+<a href="web8.html" class="gift-card">
+
+<img src="./IEMIG/جميع صور تالمنتجات/طبول/BOOL1.jpg">
+
+<div class="gift-info">
+
+<h3>🥁 هدية الطبول</h3>
+
+<p>
+طقم طبول مع:
+<br>
+🎁 عصيتين مجاناً
+<br>
+🎁 قاعدة طبلة
+<br>
+🎁 تغليف فاخر مجاني
+</p>
+
+<button class="gift-btn">
+شراء المنتج
+</button>
+
+</div>
+
+</a>
+
+<!-- المنتج 3 -->
+
+<a href="web8.html" class="gift-card">
+
+<img src="./IEMIG/جميع صور تالمنتجات/بيانو/Ashd.png">
+
+<div class="gift-info">
+
+<h3>🎹 عرض البيانو</h3>
+
+<p>
+بيانو حديث مع:
+<br>
+🎁 سماعة مجانية
+<br>
+🎁 كرسي بيانو
+<br>
+🎁 خصم خاص على الإكسسوارات
+</p>
+
+<button class="gift-btn">
+شراء المنتج
+</button>
+
+</div>
+
+</a>
+
+<!-- المنتج 4 -->
+
+<a href="./web8.html" class="gift-card">
+
+<img src="./IEMIG/جميع صور تالمنتجات/سماعات/sbekar.1.jpg">
+
+<div class="gift-info">
+
+<h3>🎧 باكج السماعات</h3>
+
+<p>
+سماعات احترافية مع:
+<br>
+🎁 مايك مجاني
+<br>
+🎁 حقيبة حماية
+<br>
+🎁 توصيل مجاني
+</p>
+
+<button class="gift-btn">
+شراء المنتج
+</button>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
