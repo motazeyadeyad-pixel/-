@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>متجر موسيقاتي</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0f0f0f;
+    font-family:Tahoma;
+    direction:rtl;
+    color:white;
+    padding-top:260px;
+}
+
+header{
+    width:100%;
+    background:#151515;
+    padding:10px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:999;
+}
+
+.top-logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.top-logo img{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+
+.top-logo h1{
+    color:#00ffd0;
+    font-size:30px;
+}
+
+.top-links{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    margin-top:25px;
+    border-top:2px solid #333;
+    padding-top:20px;
+}
+
+.top-links a img{
+    width:150px;
+    height:auto;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.top-links a img:hover{
+    transform:scale(1.08);
+}
+
+.top-links a:hover{
+    color:#00ffd0;
+}
+
+.menu{
+    position:absolute;
+    top:25px;
+    right:25px;
+}
+
+.menu-btn{
+    background:#00ffd0;
+    color:black;
+    border:none;
+    font-size:28px;
+    padding:8px 16px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.menu-content{
+    display:none;
+    position:absolute;
+    right:0;
+    top:55px;
+    background:#1d1d1d;
+    width:260px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+.menu-content a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+    padding:15px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.menu-content a:hover{
+    background:#00ffd0;
+    color:black;
+}
+.menu-content a img{
+    width:90px;
+    height:55px;
+    object-fit:contain;
+    background:#111;
+    padding:5px;
+    border-radius:10px;
+}
+
+.about-title{
+    text-align:center;
+    margin-top:60px;
+    color:#00ffd0;
+    font-size:38px;
+}
+
+.about-store{
+    width:80%;
+    margin:auto;
+    margin-top:25px;
+    text-align:center;
+    color:#ddd;
+    font-size:22px;
+    line-height:2;
+}
+
+.categories-section{
+    width:90%;
+    margin:auto;
+    margin-top:80px;
+    margin-bottom:80px;
+}
+
+.section-title{
+    text-align:center;
+    color:#00ffd0;
+    margin-bottom:35px;
+    font-size:38px;
+}
+
+.categories-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.category-card{
+    width:240px;
+    background:#1d1d1d;
+    border-radius:20px;
+    overflow:hidden;
+    text-align:center;
+    text-decoration:none;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+.category-card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+.category-card img{
+    width:100%;
+    height:170px;
+    object-fit:contain;
+    background:#111;
+    padding:10px;
+}
+
+
+.category-card h3{
+    padding:18px;
+    color:white;
+    font-size:24px;
+}
+
+.footer{
+    width:100%;
+    background:rgb(146, 113, 3);
+    margin-top:80px;
+    padding:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.footer-right{
+    color:black;
+    text-align:right;
+    line-height:2.2;
+}
+
+.footer-right h2{
+    margin-bottom:15px;
+    font-size:32px;
+}
+
+.footer-right p{
+    font-size:20px;
+}
+
+.footer-social{
+    display:flex;
+    gap:20px;
+}
+
+.footer-social img{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.footer-social img:hover{
+    transform:scale(1.1);
+}
+
+.social-title{
+    width:100%;
+    text-align:center;
+    color:black;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.location-link{
+    color:black;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.location-link:hover{
+    color:white;
+}
+.section-title{
+    text-align:center;
+    margin-top:60px;
+    font-size:32px;
+    color:#00ffd0;
+}
+
+.popular-products{
+    width:85%;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+}
+
+.popular-card{
+    background:#1d1d1d;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.popular-card:hover{
+    transform:scale(1.05);
+}
+
+.popular-card img{
+    width:100%;
+    height:150px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.popular-card h3{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.popular-card p{
+    color:#00ffd0;
+    margin-top:5px;
+}
+.popular-link{
+    text-decoration:none;
+    color:white;
+}
+
+.popular-btn{
+    margin-top:12px;
+    padding:10px 25px;
+    border:none;
+    border-radius:10px;
+    background:#00ffd0;
+    color:black;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.popular-btn:hover{
+    transform:scale(1.08);
+    background:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="menu">
+
+<button class="menu-btn" onclick="openMenu()">
+☰
+</button>
+
+<div class="menu-content" id="menu">
+
+<a href="web11.html">
+
+<img src="من نحن.png">
+
+<span>من نحن</span>
+
+</a>
+
+<a href="web12.html">
+
+<img src="هداية.png">
+
+<span>الهدايا</span>
+
+</a>
+
+<a href="web13.html">
+
+<img src="عروض خاصة.png">
+
+<span>العروض الخاصة</span>
+
+</a>
+
+<a href="web14.html">
+
+<img src="تواصل معنا.png">
+
+<span>تواصل معنا</span>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="top-logo">
+
+<img src="logo.png">
+
+<h1>🎵 متجر موسيقاتي 🎵</h1>
+
+</div>
+
+<div class="top-links">
+
+<a href="web2.html">
+
+<img src="الرئيسية.png">
+
+</a>
+
+<a href="web.html">
+
+<img src="momo.png">
+
+</a>
+
+<a href="web9.html">
+
+<img src="الخدمات.png">
+
+</a>
+
+<a href="web10.html">
+
+<img src="mmk.png">
+
+</a>
+
+</div>
+
+</header>
+
+<h2 class="about-title">
+نبذة عن متجرنا
+</h2>
+
+<p class="about-store">
+
+متجر <b>MOSIQATI</b> هو متجر رائد في بيع الآلات الموسيقية في الأردن
+ويقدم مجموعة واسعة من المنتجات الموسيقية مثل العود والقيثارات
+والبيانو والدرمز والطبول ومعدات الاستوديو المختلفة.
+
+يهدف المتجر إلى توفير تجربة مميزة لعشاق الموسيقى
+من خلال تقديم منتجات عالية الجودة وتصميم حديث وسهل الاستخدام
+يساعد الزوار على تصفح المنتجات والوصول إليها بسهولة.
+
+</p>
+
+<div class="categories-section">
+
+<h2 class="section-title">
+🎵 فئات المنتجات
+</h2>
+
+<div class="categories-container">
+
+<a href="صفحة فئات اليبيانو.html" class="category-card">
+
+<img src="images.jpg">
+
+<h3>
+أدوات البيانو
+</h3>
+
+</a>
+
+<a href="صفحة فئات القيثار.html" class="category-card">
+
+<img src="تنزيل (3).jpg">
+
+<h3>
+أدوات القيثار
+</h3>
+
+</a>
+
+<a href="صفحة فئات الطبول.html" class="category-card">
+
+<img src="الطبلة-300x220.jpg">
+
+<h3>
+أدوات الطبول
+</h3>
+
+</a>
+
+<a href="صفحة فئات الهوائية.html" class="category-card">
+
+<img src="Clarinet.jpg">
+
+<h3>
+الأدوات الهوائية
+</h3>
+
+</a>
+
+<a href="صفحة فئات الكمان.html" class="category-card">
+
+<img src="KMAN2.jpg">
+
+<h3>
+كمان
+</h3>
+
+</a>
+
+<a href="صفحة فئات معدات الستديو.html" class="category-card">
+
+<img src="images (1).jpg">
+
+<h3>
+معدات الاستوديو
+</h3>
+
+</a>
+
+<a href="صفحة فئات السماعات.html" class="category-card">
+
+<img src="sbekar3.jpg">
+
+<h3>
+سماعات
+</h3>
+
+</a>
+
+</div>
+
+</div>
+<h2 class="section-title">🔥 الأكثر طلباً في المتجر 🔥</h2>
+
+<div class="popular-products">
+
+<!-- منتج 1 -->
+<a href="./المنتجات/سماعات/سماعات2.html" class="popular-link">
+
+<div class="popular-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/سماعات/sbekar4.jpg">
+
+<h3>سماعة بلوتوث برو</h3>
+
+<p>السعر: 120 دينار</p>
+
+<button class="popular-btn">
+عرض المنتج
+</button>
+
+</div>
+
+</a>
+
+<!-- منتج 2 -->
+<a href="./المنتجات/مايك أحترافي.HTML" class="popular-link">
+
+<div class="popular-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/معدات ستيديو/MAEK1.webp">
+
+<h3>مايك تسجيل احترافي</h3>
+
+<p>السعر: 90 دينار</p>
+
+<button class="popular-btn">
+عرض المنتج
+</button>
+
+</div>
+
+</a>
+
+<!-- منتج 3 -->
+<a href="./المنتجات/منتجات البيانو/بانو3.html" class="popular-link">
+
+<div class="popular-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/بيانو/Sanstitre_-1.webp">
+
+<h3>كيبورد موسيقي</h3>
+
+<p>السعر: 120 دينار</p>
+
+<button class="popular-btn">
+عرض المنتج
+</button>
+
+</div>
+
+</a>
+
+<!-- منتج 4 -->
+<a href="./المنتجات/معدات أستدسو 1.HTML" class="popular-link">
+
+<div class="popular-card">
+
+<img src="IEMIG/جميع صور تالمنتجات/معدات ستيديو/MAEK0.jpg">
+
+<h3>إضاءة استوديو RGB</h3>
+
+<p>السعر: 60 دينار</p>
+
+<button class="popular-btn">
+عرض المنتج
+</button>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
+<H1>     </H1>
+<footer class="footer">
+
+<div class="footer-right">
+
+<h2>تواصل معنا</h2>
+
+<p>
+📞 رقم الهاتف: 0777788856
+</p>
+
+<p>
+📧 البريد الإلكتروني:
+mosiqati@gmail.com
+</p>
+
+<p>
+
+📍
+<a href="https://www.google.com/maps/place/Mosiqati+%D9%85%D9%88%D8%B3%D9%8A%D9%82%D8%A7%D8%AA%D9%8A+(Music+Store)%E2%80%AD/data=!4m2!3m1!1s0x0:0x9999a93aa5bf7f45?sa=X&ved=1t:2428&ictx=111" target="_blank" class="location-link">
+
+موقعنا: عمان - الأردن
+
+</a>
+
+</p>
+
+<p>
+🕒 أوقات العمل:
+من 9 صباحاً حتى 10 مساءً
+</p>
+
+</div>
+
+<div class="footer-social">
+
+<h2 class="social-title">
+تابعنا على مواقع التواصل
+</h2>
+
+<a href="https://www.instagram.com/mosiqati/" target="_blank">
+
+<img src="تنزيل.jpg">
+
+</a>
+
+<a href="https://web.whatsapp.com/" target="_blank">
+
+<img src="تنزيل (1).jpg">
+
+</a>
+
+<a href="https://web.facebook.com/mosiqati" target="_blank">
+
+<img src="تنزيل (2).jpg">
+
+</a>
+
+</div>
+
+</footer>
+
+<script>
+
+function openMenu(){
+
+let menu = document.getElementById("menu");
+
+if(menu.style.display == "block"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "block";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
